@@ -253,52 +253,127 @@ const Button = styled.button`
   }
 `;
 
+const SocialButton = styled.a`
+  background: transparent;
+  color: #ffffffbb;
+  border: 1px solid #ffffff25;
+  padding: 11px 14px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition:
+    border-color 0.18s,
+    color 0.18s,
+    transform 0.12s;
+
+  &:hover {
+    border-color: #ffffff55;
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+`;
+
+const LinkedInIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+const GithubIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+  </svg>
+);
+
+const EmailIcon = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+    <polyline points="22,6 12,13 2,6" />
+  </svg>
+);
+
 export default function ProfileHeader() {
-	const xpYears = new Date().getFullYear() - 2013;
+  const xpYears = new Date().getFullYear() - 2013;
 
-	return (
-		<>
-			<GlobalStyle />
-			<Card>
-				<BackgroundNumber>13</BackgroundNumber>
+  return (
+    <>
+      <GlobalStyle />
+      <Card>
+        <BackgroundNumber>13</BackgroundNumber>
 
-				<TopRow>
-					<IndexLabel>
-						{xpYears}
-						<span>/XP</span>
-					</IndexLabel>
-					<Divider />
-				</TopRow>
+        <TopRow>
+          <IndexLabel>
+            {xpYears}
+            <span>/XP</span>
+          </IndexLabel>
+          <Divider />
+        </TopRow>
 
-				<RoleLabel>Software Engineer</RoleLabel>
+        <RoleLabel>Software Engineer</RoleLabel>
 
-				<HeroName>
-					Daniele
-					<br />
-					Mina<span className="dim">tto</span>
-				</HeroName>
+        <HeroName>
+          Daniele
+          <br />
+          Mina<span className="dim">tto</span>
+        </HeroName>
 
-				<DescriptionWrapper>
-					<QuoteLine />
-					<Description>
-						Known for her piercing debug-gaze and perfectionist eyes, Daniele
-						strides through digital realms armored in silent precision. A
-						polyglot master of all arcane languages—from Node.js runes to Python
-						scrolls—she orchestrates symphony-like microservices and deploys
-						ironclad site citadels from chaotic code, erecting unbreakable
-						fortresses that echo optimized empires. Her obsidian keyboard,
-						etched with the sigils of a thousand deploys, strikes silence into
-						broken systems before her will alone bends architecture to
-						perfection.
-					</Description>
-				</DescriptionWrapper>
+        <DescriptionWrapper>
+          <QuoteLine />
+          <Description>
+            Known for her piercing debug-gaze and perfectionist eyes, Daniele
+            strides through digital realms armored in silent precision. A
+            polyglot master of all arcane languages—from Node.js runes to Python
+            scrolls—she orchestrates symphony-like microservices and deploys
+            ironclad site citadels from chaotic code, erecting unbreakable
+            fortresses that echo optimized empires. Her obsidian keyboard,
+            etched with the sigils of a thousand deploys, strikes silence into
+            broken systems before her will alone bends architecture to
+            perfection.
+          </Description>
+        </DescriptionWrapper>
 
-				<Actions>
-					<PreviewButton>
-						<PlayIcon /> Contact
-					</PreviewButton>
-				</Actions>
-			</Card>
-		</>
-	);
+        <Actions>
+          <SocialButton
+            href="https://www.linkedin.com/in/daniele-minatto"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <LinkedInIcon />
+          </SocialButton>
+          <SocialButton
+            href="https://github.com/dminatto"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GithubIcon />
+          </SocialButton>
+          <SocialButton href="mailto:daniele.minatto@gmail.com">
+            <EmailIcon />
+          </SocialButton>
+        </Actions>
+      </Card>
+    </>
+  );
 }
