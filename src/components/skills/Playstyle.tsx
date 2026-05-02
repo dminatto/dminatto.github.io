@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import styled, { keyframes, createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, keyframes } from "styled-components";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Card = styled.div`
@@ -28,14 +28,14 @@ const RadarWrap = styled.div`
 `;
 
 const axes = [
-  { label: "Frontend", value: 0.92 },
+  { label: "Frontend", value: 0.65 },
   { label: "Backend", value: 0.88 },
   { label: "Infra", value: 0.75 },
-  { label: "Design", value: 0.65 },
+  { label: "Debug", value: 0.65 },
   { label: "Leadership", value: 0.8 },
 ];
 
-function polarToXY(angle, r, cx, cy) {
+function polarToXY(angle: number, r: number, cx: number, cy: number) {
   const rad = (angle - 90) * (Math.PI / 180);
   return {
     x: cx + r * Math.cos(rad),
@@ -43,7 +43,7 @@ function polarToXY(angle, r, cx, cy) {
   };
 }
 
-function radarPoints(values, r, cx, cy) {
+function radarPoints(values: number[], r: number, cx: number, cy: number) {
   const n = values.length;
   return values
     .map((v, i) => {
@@ -62,14 +62,14 @@ function RadarChart() {
   const levels = [0.25, 0.5, 0.75, 1.0];
   const n = axes.length;
 
-  const shapeRef = useRef(null);
+  const shapeRef = useRef<SVGPolygonElement>(null);
 
   useEffect(() => {
     const el = shapeRef.current;
     if (!el) return;
     const len = el.getTotalLength();
-    el.style.strokeDasharray = len;
-    el.style.strokeDashoffset = len;
+    el.style.strokeDasharray = String(len);
+    el.style.strokeDashoffset = String(len);
     requestAnimationFrame(() => {
       el.style.transition = "stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1)";
       el.style.strokeDashoffset = "0";

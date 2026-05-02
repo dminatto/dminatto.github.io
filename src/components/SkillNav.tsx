@@ -349,7 +349,6 @@ const skills = [
 ];
 
 export default function SkillNav() {
-  // 3. Define state types for better TS safety
   const [active, setActive] = useState<string | null>(null);
   const [modal, setModal] = useState<(typeof skills)[0] | null>(null);
 

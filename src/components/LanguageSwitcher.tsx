@@ -1,13 +1,13 @@
 "use client";
 
 import styled from "styled-components";
-import { useLanguage, Locale } from "@/contexts/LanguageContext";
+import { type Locale, useLanguage } from "@/contexts/LanguageContext";
 
 const locales: { code: Locale; label: string }[] = [
-  { code: "pt", label: "PT" },
-  { code: "en", label: "EN" },
-  { code: "es", label: "ES" },
-  { code: "it", label: "IT" },
+	{ code: "pt", label: "PT" },
+	{ code: "en", label: "EN" },
+	{ code: "es", label: "ES" },
+	{ code: "it", label: "IT" },
 ];
 
 const Switcher = styled.div`
@@ -42,19 +42,19 @@ const LangBtn = styled.button<{ $active: boolean }>`
 `;
 
 export default function LanguageSwitcher() {
-  const { locale, setLocale } = useLanguage();
+	const { locale, setLocale } = useLanguage();
 
-  return (
-    <Switcher>
-      {locales.map(({ code, label }) => (
-        <LangBtn
-          key={code}
-          $active={locale === code}
-          onClick={() => setLocale(code)}
-        >
-          {label}
-        </LangBtn>
-      ))}
-    </Switcher>
-  );
+	return (
+		<Switcher>
+			{locales.map(({ code, label }) => (
+				<LangBtn
+					key={code}
+					$active={locale === code}
+					onClick={() => setLocale(code)}
+				>
+					{label}
+				</LangBtn>
+			))}
+		</Switcher>
+	);
 }

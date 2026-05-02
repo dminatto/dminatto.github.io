@@ -1,13 +1,12 @@
 "use client";
 
-import styled, { keyframes, createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, keyframes } from "styled-components";
+import LanguageSwitcher from "./LanguageSwitcher";
 import ProfileHeader from "./ProfileHeader";
 import ProfileHero from "./ProfileHero";
 import SkillNav from "./SkillNav";
-import SkillsGrid from "./SkillsGrid";
-import LanguageSwitcher from "./LanguageSwitcher";
-import Playstyle from "./skills/Playstyle";
 import Core from "./skills/Core";
+import Playstyle from "./skills/Playstyle";
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500&display=swap');
