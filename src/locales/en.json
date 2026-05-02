@@ -1,0 +1,22 @@
+{
+  "specialization": "Specialization",
+  "fullStack": "Full Stack",
+  "specDesc": "Masters front-end and back-end systems. Highly adaptable. Excels in building scalable, robust web applications quickly.",
+  "skillRadar": "Skill Radar",
+  "coreSkill": "Core Skill",
+  "scalableArch": "Scalable Architecture",
+  "selectHero": "Select Hero",
+  "preview": "Preview",
+  "focusMode": "Focus Mode",
+  "role": "Senior Software Engineer",
+  "techAttributes": "Technical Attributes",
+  "frontend": "Frontend",
+  "backend": "Backend",
+  "infra": "Infrastructure",
+  "design": "Design",
+  "leadership": "Leadership",
+  "architecture": "Architecture",
+  "cloud": "Cloud",
+  "mobile": "Mobile",
+  "coreSkillDesc": "Known for her piercing debug-gaze and perfectionist eyes. A polyglot master of all arcane languages — from Node.js runes to Python scrolls. Her obsidian keyboard, etched with the sigils of a thousand deploys, strikes silence into broken systems before her will alone bends architecture to perfection."
+}

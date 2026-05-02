@@ -1,0 +1,22 @@
+{
+  "specialization": "Especialização",
+  "fullStack": "Full Stack",
+  "specDesc": "Mestre em sistemas front-end e back-end. Altamente adaptável. Constrói aplicações web escaláveis e robustas com rapidez.",
+  "skillRadar": "Radar de Habilidades",
+  "coreSkill": "Habilidade Principal",
+  "scalableArch": "Arquitetura Escalável",
+  "selectHero": "Selecionar",
+  "preview": "Prévia",
+  "focusMode": "Modo Foco",
+  "role": "Engenheira de Software Sênior",
+  "techAttributes": "Atributos Técnicos",
+  "frontend": "Front-end",
+  "backend": "Back-end",
+  "infra": "Infraestrutura",
+  "design": "Design",
+  "leadership": "Liderança",
+  "architecture": "Arquitetura",
+  "cloud": "Nuvem",
+  "mobile": "Mobile",
+  "coreSkillDesc": "Conhecida pelo seu olhar perfeccionista e precisão silenciosa. Mestre em linguagens arcanas — de runas Node.js a pergaminhos Python. Sua teclado de obsidiana, gravado com os sigilos de mil deploys, silencia sistemas quebrados antes que sua vontade dobre a arquitetura à perfeição."
+}

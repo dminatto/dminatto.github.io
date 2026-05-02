@@ -1,11 +1,27 @@
 "use client";
 
-import styled from "styled-components";
-import FeaturedProjectCard from "./FeaturedProjectCard";
+import styled, { keyframes, createGlobalStyle } from "styled-components";
 import ProfileHeader from "./ProfileHeader";
 import ProfileHero from "./ProfileHero";
 import SkillNav from "./SkillNav";
 import SkillsGrid from "./SkillsGrid";
+import LanguageSwitcher from "./LanguageSwitcher";
+import Playstyle from "./skills/Playstyle";
+import Core from "./skills/Core";
+
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #110606;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+    font-family: 'Barlow', sans-serif;
+  }
+`;
 
 const Container = styled.div`
   position: fixed;
@@ -93,25 +109,45 @@ const NavFooter = styled.div`
   }
 `;
 
+const fadeUp = keyframes`
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
+
+const Wrapper = styled.div`
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: ${fadeUp} 0.4s ease both;
+`;
+
 export default function SoftwareEngineerProfile() {
-	return (
-		<Container>
-			<Glow />
-			<Layout>
-				<div style={{ justifySelf: "end" }}>
-					<ProfileHeader />
-				</div>
+  return (
+    <Container>
+      <GlobalStyle />
+      <Glow />
+      <LanguageSwitcher />
+      <Layout>
+        <div style={{ justifySelf: "end", alignSelf: "center" }}>
+          <ProfileHeader />
+        </div>
 
-				<ProfileHero />
+        <div style={{ alignSelf: "end", paddingBottom: "80px" }}>
+          <ProfileHero />
+        </div>
 
-				<div>
-					<SkillsGrid />
-				</div>
-			</Layout>
+        <div style={{ justifySelf: "start", alignSelf: "center" }}>
+          <Wrapper>
+            <Playstyle />
+            <Core />
+          </Wrapper>
+        </div>
+      </Layout>
 
-			<NavFooter>
-				<SkillNav />
-			</NavFooter>
-		</Container>
-	);
+      <NavFooter>
+        <SkillNav />
+      </NavFooter>
+    </Container>
+  );
 }

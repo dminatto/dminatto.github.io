@@ -15,7 +15,7 @@ const Wrapper = styled(motion.div)`
 `;
 
 const HeroImage = styled(Image)``;
-
+const random = Math.floor(Math.random() * 11) + 1;
 export default function ProfileHero() {
   return (
     <Wrapper
@@ -24,12 +24,11 @@ export default function ProfileHero() {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <HeroImage
-        src="/dani-01.png"
+        src={`/dani-${random}.png`}
         alt="Daniele Minatto"
         fill
         sizes="100vw"
         priority={true}
-        quality={85}
         objectFit="contain"
         objectPosition="center"
         placeholder="blur"

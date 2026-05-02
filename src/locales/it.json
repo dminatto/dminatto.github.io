@@ -1,0 +1,22 @@
+{
+  "specialization": "Specializzazione",
+  "fullStack": "Full Stack",
+  "specDesc": "Padrona dei sistemi front-end e back-end. Altamente adattabile. Eccelle nella creazione di applicazioni web scalabili e robuste.",
+  "skillRadar": "Radar delle Competenze",
+  "coreSkill": "Competenza Principale",
+  "scalableArch": "Architettura Scalabile",
+  "selectHero": "Seleziona",
+  "preview": "Anteprima",
+  "focusMode": "Modalità Focus",
+  "role": "Ingegnera Software Senior",
+  "techAttributes": "Attributi Tecnici",
+  "frontend": "Front-end",
+  "backend": "Back-end",
+  "infra": "Infrastruttura",
+  "design": "Design",
+  "leadership": "Leadership",
+  "architecture": "Architettura",
+  "cloud": "Cloud",
+  "mobile": "Mobile",
+  "coreSkillDesc": "Nota per il suo sguardo perfezionista e la sua precisione silenziosa. Maestra di linguaggi arcani — dalle rune di Node.js ai rotoli di Python. La sua tastiera di ossidiana, incisa con i sigilli di mille deploy, mette a tacere i sistemi rotti prima che la sua volontà pieghi l'architettura alla perfezione."
+}
