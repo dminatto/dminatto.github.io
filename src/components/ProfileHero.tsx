@@ -1,34 +1,40 @@
-"use client";
-
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
-const Image = styled.img`
+const Wrapper = styled(motion.div)`
   position: relative;
-  z-index: 2;
   width: 100%;
-  height: 100%;
-  object-fit: contain; /* Adapte: contain/escala; cover/preenche */
-`;
-
-const Wrapper = styled.div`
-  width: 100%;
-  height: clamp(320px, 55vh, 480px); /* Responsivo altura */
+  height: clamp(320px, 55vh, 480px);
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   overflow: hidden;
-  border-radius: 24px; /* Opcional: arredondado */
+  border-radius: 24px;
+  will-change: transform;
 `;
+
+const HeroImage = styled(Image)``;
+
 export default function ProfileHero() {
-	return (
-		<Wrapper>
-			<Image
-				src="./dani-01.png"
-				initial={{ scale: 0.9, opacity: 0 }}
-				animate={{ scale: 1, opacity: 1 }}
-				transition={{ duration: 0.4 }}
-			/>
-		</Wrapper>
-	);
+  return (
+    <Wrapper
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <HeroImage
+        src="/dani-01.png"
+        alt="Daniele Minatto"
+        fill
+        sizes="100vw"
+        priority={true}
+        quality={85}
+        objectFit="contain"
+        objectPosition="center"
+        placeholder="blur"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" // Placeholder tiny (rápido)
+      />
+    </Wrapper>
+  );
 }

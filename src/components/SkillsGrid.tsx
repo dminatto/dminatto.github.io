@@ -1,6 +1,24 @@
 import { useEffect, useState } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 
+/* ── 1. Define Interfaces for Custom Props ── */
+interface HighlightProps {
+  $highlight?: boolean;
+}
+
+interface ProgressProps extends HighlightProps {
+  $offset: number;
+  $delay?: string;
+}
+
+/* ── Component Props Interface ── */
+interface KpiCircleProps {
+  value: number;
+  name: string;
+  highlight?: boolean;
+  delay?: string;
+}
+
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,7 +51,6 @@ const Wrapper = styled.div`
   animation: ${fadeUp} 0.4s ease both;
 `;
 
-/* ── Card base ── */
 const Card = styled.div`
   background: #1a0a0a;
   border: 1px solid #2a1212;
@@ -41,7 +58,6 @@ const Card = styled.div`
   padding: 20px;
 `;
 
-/* ── Specialization card ── */
 const SpecLabel = styled.div`
   font-family: "Barlow Condensed", sans-serif;
   font-size: 10px;
@@ -83,7 +99,6 @@ const SpecDesc = styled.p`
   color: #ffffff77;
 `;
 
-/* ── KPI card ── */
 const KpiLabel = styled.div`
   font-family: "Barlow Condensed", sans-serif;
   font-size: 10px;
@@ -107,7 +122,8 @@ const KpiItem = styled.div`
   gap: 8px;
 `;
 
-const KpiName = styled.div`
+/* ── Applied HighlightProps here ── */
+const KpiName = styled.div<HighlightProps>`
   font-family: "Barlow Condensed", sans-serif;
   font-size: 10px;
   font-weight: 700;
@@ -124,7 +140,6 @@ const KpiValue = styled.div`
   line-height: 1;
 `;
 
-/* ── Circular progress ── */
 const CircleSvg = styled.svg`
   width: 80px;
   height: 80px;
@@ -137,7 +152,8 @@ const TrackCircle = styled.circle`
   stroke-width: 5;
 `;
 
-const ProgressCircle = styled.circle`
+/* ── Applied ProgressProps here ── */
+const ProgressCircle = styled.circle<ProgressProps>`
   fill: none;
   stroke: ${({ $highlight }) => ($highlight ? "#e0241a" : "#e0241a88")};
   stroke-width: 5;
@@ -164,35 +180,35 @@ const CircleLabel = styled.div`
   justify-content: center;
 `;
 
-function KpiCircle({ value, name, highlight, delay }) {
-	const radius = 35;
-	const circumference = 2 * Math.PI * radius; // ~220
-	const offset = circumference - (value / 100) * circumference;
+/* ── Typed the props for the function ── */
+function KpiCircle({ value, name, highlight, delay }: KpiCircleProps) {
+  const radius = 35;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (value / 100) * circumference;
 
-	return (
-		<KpiItem>
-			<CircleInner>
-				<CircleSvg viewBox="0 0 80 80">
-					<TrackCircle cx="40" cy="40" r={radius} />
-					<ProgressCircle
-						cx="40"
-						cy="40"
-						r={radius}
-						$highlight={highlight}
-						$offset={offset}
-						$delay={delay}
-					/>
-				</CircleSvg>
-				<CircleLabel>
-					<KpiValue>{value}</KpiValue>
-				</CircleLabel>
-			</CircleInner>
-			<KpiName $highlight={highlight}>{name}</KpiName>
-		</KpiItem>
-	);
+  return (
+    <KpiItem>
+      <CircleInner>
+        <CircleSvg viewBox="0 0 80 80">
+          <TrackCircle cx="40" cy="40" r={radius} />
+          <ProgressCircle
+            cx="40"
+            cy="40"
+            r={radius}
+            $highlight={highlight}
+            $offset={offset}
+            $delay={delay}
+          />
+        </CircleSvg>
+        <CircleLabel>
+          <KpiValue>{value}</KpiValue>
+        </CircleLabel>
+      </CircleInner>
+      <KpiName $highlight={highlight}>{name}</KpiName>
+    </KpiItem>
+  );
 }
 
-/* ── Core Skill card ── */
 const CoreSkillCard = styled(Card)`
   display: flex;
   align-items: center;
@@ -237,66 +253,62 @@ const SkillName = styled.div`
 `;
 
 const ArchIcon = () => (
-	<svg
-		viewBox="0 0 24 24"
-		fill="none"
-		stroke="currentColor"
-		strokeWidth="2"
-		strokeLinecap="round"
-		strokeLinejoin="round"
-	>
-		<rect x="2" y="7" width="6" height="10" rx="1" />
-		<rect x="9" y="3" width="6" height="18" rx="1" />
-		<rect x="16" y="9" width="6" height="8" rx="1" />
-	</svg>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="2" y="7" width="6" height="10" rx="1" />
+    <rect x="9" y="3" width="6" height="18" rx="1" />
+    <rect x="16" y="9" width="6" height="8" rx="1" />
+  </svg>
 );
 
-/* ── Main ── */
 export default function SkillsGrid() {
-	return (
-		<>
-			<GlobalStyle />
-			<Wrapper>
-				{/* Specialization */}
-				<Card>
-					<SpecLabel>Specialization</SpecLabel>
-					<SpecHeader>
-						<SpecTitle>Full Stack</SpecTitle>
-						<CodeIcon>&lt;/&gt;</CodeIcon>
-					</SpecHeader>
-					<SpecDesc>
-						Masters of front-end and back-end systems. Highly adaptable. Excels
-						in building scalable, robust web applications quickly.
-					</SpecDesc>
-				</Card>
+  return (
+    <>
+      <GlobalStyle />
+      <Wrapper>
+        <Card>
+          <SpecLabel>Specialization</SpecLabel>
+          <SpecHeader>
+            <SpecTitle>Full Stack</SpecTitle>
+            <CodeIcon>&lt;/&gt;</CodeIcon>
+          </SpecHeader>
+          <SpecDesc>
+            Masters of front-end and back-end systems. Highly adaptable. Excels
+            in building scalable, robust web applications quickly.
+          </SpecDesc>
+        </Card>
 
-				{/* KPIs */}
-				<Card>
-					<KpiLabel>Technical KPIs</KpiLabel>
-					<KpiGrid>
-						<KpiCircle value={98} name="Code Quality" highlight delay="0s" />
-						<KpiCircle value={92} name="Speed" highlight delay="0.1s" />
-						<KpiCircle
-							value={100}
-							name="System Design"
-							highlight
-							delay="0.2s"
-						/>
-						<KpiCircle value={88} name="Performance" delay="0.3s" />
-					</KpiGrid>
-				</Card>
+        <Card>
+          <KpiLabel>Technical KPIs</KpiLabel>
+          <KpiGrid>
+            <KpiCircle value={98} name="Code Quality" highlight delay="0s" />
+            <KpiCircle value={92} name="Speed" highlight delay="0.1s" />
+            <KpiCircle
+              value={100}
+              name="System Design"
+              highlight
+              delay="0.2s"
+            />
+            <KpiCircle value={88} name="Performance" delay="0.3s" />
+          </KpiGrid>
+        </Card>
 
-				{/* Core Skill */}
-				<CoreSkillCard>
-					<SkillIcon>
-						<ArchIcon />
-					</SkillIcon>
-					<SkillInfo>
-						<SkillCategory>Core Skill</SkillCategory>
-						<SkillName>Scalable Architecture</SkillName>
-					</SkillInfo>
-				</CoreSkillCard>
-			</Wrapper>
-		</>
-	);
+        <CoreSkillCard>
+          <SkillIcon>
+            <ArchIcon />
+          </SkillIcon>
+          <SkillInfo>
+            <SkillCategory>Core Skill</SkillCategory>
+            <SkillName>Scalable Architecture</SkillName>
+          </SkillInfo>
+        </CoreSkillCard>
+      </Wrapper>
+    </>
+  );
 }
