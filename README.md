@@ -1,8 +1,7 @@
 # 🧙‍♀️ Daniele Minatto — Software Engineer Character Sheet
 
-![Portfolio Preview](./public/preview.png)
+<img width="1679" height="938" alt="image" src="https://github.com/user-attachments/assets/4c11aa7c-ae39-4ceb-90c3-b296a20aa8ed" />
 
-<!-- Substitua por: ./public/preview.png ou link Vercel screenshot -->
 
 > **"Known for her piercing debug-gaze and perfectionist eyes, Daniele strides through digital realms armored in silent precision. A polyglot master of all arcane languages—from Node.js runes to Python scrolls—she orchestrates symphony-like microservices and deploys ironclad site citadels from chaotic code."**
 
