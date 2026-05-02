@@ -1,18 +1,5 @@
-import CharacterPage from "@/components/CharacterPage";
+import SoftwareEngineerProfile from "@/components/SoftwareEngineerProfile";
 
-async function getCharacter() {
-  return {
-    name: "Astraya Twilight",
-    class: "Assassin",
-    stats: {
-      hp: 60,
-      dexterity: 100,
-    },
-  };
-}
-
-export default async function Page() {
-  const character = await getCharacter();
-
-  return <CharacterPage character={character} />;
+export default function Page() {
+	return <SoftwareEngineerProfile />;
 }

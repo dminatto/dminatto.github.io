@@ -1,14 +1,14 @@
 "use client";
 
 import { ThemeProvider } from "styled-components";
-import { theme } from "@/styles/theme";
 import { GlobalStyle } from "@/styles/global";
+import { theme } from "@/styles/theme";
 
 export default function Providers({ children }: any) {
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      {children}
-    </ThemeProvider>
-  );
+	return (
+		<ThemeProvider theme={theme}>
+			<GlobalStyle />
+			{children}
+		</ThemeProvider>
+	);
 }
